@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>script1</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <input v-model="firstName" placeholder="firstName">
+      <input v-model="lastName" placeholder="lastName">
+      <p>firstName: {{ firstName }}</p>
+      <p>lastName: {{ lastName }}</p>
+      <p>fullName: {{ fullName }}</p>
+      <p>now: {{ now  }}</p>
+    </div>
+    <script charset="utf-8">
+      var vm = new Vue({
+        el: '#app',
+        data: {
+          firstName: '',
+          lastName: ''
+        },
+        computed: {
+          fullName: function() {
+            return `${this.firstName} ${this.lastName}`
+          },
+          now: function() {
+            return Date.now()
+          }
+        }
+      })
+    </script>
+  </body>
+</html>
